@@ -1,0 +1,44 @@
+{
+  "name": "localmove",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n \"FRONTEND,BACKEND\" -c \"cyan,magenta\" \"vite --port 5173 --strictPort\" \"npm --prefix server run dev\"",
+    "dev:frontend": "vite --port 5173 --strictPort",
+    "dev:backend": "npm --prefix server run dev",
+    "build": "tsc -b && vite build",
+    "build:all": "tsc -b && vite build && npm --prefix server run build",
+    "start": "npm --prefix server run start",
+    "server": "npm --prefix server run dev",
+    "server:build": "npm --prefix server run build",
+    "server:seed": "npm --prefix server run db:seed",
+    "serve:prod": "node server/dist/index.js",
+    "publish:tunnel": "ssh -R 80:localhost:5000 -o StrictHostKeyChecking=no nokey@localhost.run",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vis.gl/react-google-maps": "^1.10.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.56.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.4",
+    "tailwind-merge": "^3.7.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "autoprefixer": "^10.6.1",
+    "concurrently": "^10.0.6",
+    "oxlint": "^1.81.0",
+    "postcss": "^8.5.30",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}

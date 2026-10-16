@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: localmove-platform
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install --include=dev && npm --prefix server install --include=dev && npm run build:all
+    startCommand: node server/dist/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: VITE_GOOGLE_MAPS_API_KEY
+        value: AIzaSyBbyqtpPJXKzeeCMjM1uTU1m1IWxli0eeg
+      - key: CORS_ORIGIN
+        value: "*"
