@@ -4,18 +4,18 @@ services:
     runtime: node
     plan: free
     region: oregon
-    buildCommand: npm install
-    startCommand: npm start
+    buildCommand: npm install --omit=dev --no-audit --no-fund
+    startCommand: node server/dist/index.js
     envVars:
       - key: NODE_VERSION
         value: 22.14.0
+      - key: NODE_OPTIONS
+        value: --max-old-space-size=384
       - key: NODE_ENV
         value: production
       - key: PORT
         value: 10000
       - key: JWT_SECRET
         generateValue: true
-      - key: VITE_GOOGLE_MAPS_API_KEY
-        value: AIzaSyBbyqtpPJXKzeeCMjM1uTU1m1IWxli0eeg
       - key: CORS_ORIGIN
         value: "*"
