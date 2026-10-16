@@ -7,9 +7,10 @@
     "dev": "concurrently -k -n \"FRONTEND,BACKEND\" -c \"cyan,magenta\" \"vite --port 5173 --strictPort\" \"npm --prefix server run dev\"",
     "dev:frontend": "vite --port 5173 --strictPort",
     "dev:backend": "npm --prefix server run dev",
-    "build": "tsc -b && vite build",
+    "postinstall": "npm --prefix server install",
+    "build": "tsc -b && vite build && npm --prefix server run build",
     "build:all": "tsc -b && vite build && npm --prefix server run build",
-    "start": "npm --prefix server run start",
+    "start": "node server/dist/index.js",
     "server": "npm --prefix server run dev",
     "server:build": "npm --prefix server run build",
     "server:seed": "npm --prefix server run db:seed",
@@ -17,6 +18,9 @@
     "publish:tunnel": "ssh -R 80:localhost:5000 -o StrictHostKeyChecking=no nokey@localhost.run",
     "lint": "oxlint",
     "preview": "vite preview"
+  },
+  "engines": {
+    "node": ">=20.19.0"
   },
   "dependencies": {
     "@vis.gl/react-google-maps": "^1.10.1",

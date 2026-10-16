@@ -88,8 +88,10 @@ class PostgresDatabase {
       this.isInitialized = true
       console.log(`🐘 [PostgreSQL] Persistent PostgreSQL database initialized at ${pgDataDir}`)
 
-      // Start TCP PostgreSQL Wire Server on port 5432 so the user's IDE Database Client extension connects!
-      await this.startTcpServer(ENV.PG_PORT)
+      // Start TCP PostgreSQL Wire Server on port 5432 in dev mode so the IDE Database Client connects
+      if (ENV.NODE_ENV !== 'production') {
+        await this.startTcpServer(ENV.PG_PORT)
+      }
     } catch (err: any) {
       console.error(`❌ [PostgreSQL] Error initializing embedded PostgreSQL:`, err)
       throw err

@@ -24,7 +24,7 @@ async function bootstrap() {
   const app = createApp()
   const port = ENV.PORT
 
-  app.listen(port, () => {
+  app.listen(port, '0.0.0.0', () => {
     console.log(`=======================================================`)
     console.log(`🚀 Local Move Backend API is running on port ${port}`)
     console.log(`📡 Base URL: http://localhost:${port}/api/v1`)
