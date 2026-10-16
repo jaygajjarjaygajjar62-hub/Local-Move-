@@ -26,16 +26,40 @@ export const Step1Locations: React.FC<Step1Props> = ({ formData, onChange, onNex
   const handleSelectSavedPickup = (addrId: string) => {
     const found = addresses.find((a) => a.id === addrId)
     if (found) {
-      onChange({ pickupAddress: found })
+      onChange({ pickupAddress: { ...found } })
     }
   }
 
   const handleSelectSavedDrop = (addrId: string) => {
     const found = addresses.find((a) => a.id === addrId)
     if (found) {
-      onChange({ dropAddress: found })
+      onChange({ dropAddress: { ...found } })
     }
   }
+
+  const handleSwapLocations = () => {
+    const currentPickup = { ...formData.pickupAddress }
+    const currentDrop = { ...formData.dropAddress }
+    onChange({
+      pickupAddress: currentDrop,
+      dropAddress: currentPickup,
+    })
+  }
+
+  // Quick Pick Hub definitions
+  const POPULAR_PICKUP_HUBS = [
+    { label: '🎓 ADIT Anand', address: 'A. D. Patel Institute of Technology (ADIT), New Vallabh Vidyanagar, Anand, Gujarat 388121', landmark: 'Behind CVM Satellite Campus', coords: { lat: 22.54607, lng: 72.9818 }, city: 'Anand' },
+    { label: '🎓 GCET Vidyanagar', address: 'G H Patel College of Engineering & Technology (GCET), Bakrol Road, Vallabh Vidyanagar, Anand, Gujarat 388120', landmark: 'Opposite BVM Boys Hostel', coords: { lat: 22.5528, lng: 72.9242 }, city: 'Anand' },
+    { label: '🏢 Satellite Ahmedabad', address: 'A-402, Shivam Residency, Behind Shyamal Cross Road, Satellite, Ahmedabad, Gujarat 380015', landmark: 'Opposite Shell Petrol Pump', coords: { lat: 23.0125, lng: 72.5285 }, city: 'Ahmedabad' },
+    { label: '🏢 Navrangpura', address: '6th Floor, Pinnacle Business Hub, Near Mithakhali Six Roads, Navrangpura, Ahmedabad, Gujarat 380009', landmark: 'Next to Central Bank of India', coords: { lat: 23.0338, lng: 72.5615 }, city: 'Ahmedabad' },
+  ]
+
+  const POPULAR_DROP_HUBS = [
+    { label: '🎓 GCET Vidyanagar', address: 'G H Patel College of Engineering & Technology (GCET), Bakrol Road, Vallabh Vidyanagar, Anand, Gujarat 388120', landmark: 'Opposite BVM Boys Hostel', coords: { lat: 22.5528, lng: 72.9242 }, city: 'Anand' },
+    { label: '🎓 SPU Vidyanagar', address: 'Sardar Patel University (SPU), University Road, Vallabh Vidyanagar, Anand, Gujarat 388120', landmark: 'Near SPU Central Library', coords: { lat: 22.5558, lng: 72.9258 }, city: 'Anand' },
+    { label: '🏢 Navrangpura Ahmedabad', address: '6th Floor, Pinnacle Business Hub, Near Mithakhali Six Roads, Navrangpura, Ahmedabad, Gujarat 380009', landmark: 'Next to Central Bank of India', coords: { lat: 23.0338, lng: 72.5615 }, city: 'Ahmedabad' },
+    { label: '🌐 GIFT City', address: 'GIFT Tower 1 & 2, GIFT City Road, Gandhinagar, Gujarat 382355', landmark: 'Near GIFT Club & Bridge', coords: { lat: 23.1611, lng: 72.6842 }, city: 'Gandhinagar' },
+  ]
 
   // Calculate live road route distance and transit time
   const routeEstimate = useMemo(() => {
@@ -116,13 +140,13 @@ export const Step1Locations: React.FC<Step1Props> = ({ formData, onChange, onNex
           ...formData.pickupAddress,
           landmark: formData.pickupAddress.landmark || pRes.landmark,
           coords: pRes.coords,
-          city: pRes.city,
+          city: pRes.city || formData.pickupAddress.city,
         },
         dropAddress: {
           ...formData.dropAddress,
           landmark: formData.dropAddress.landmark || dRes.landmark,
           coords: dRes.coords,
-          city: dRes.city,
+          city: dRes.city || formData.dropAddress.city,
         },
       })
     } catch (err) {
@@ -198,7 +222,10 @@ export const Step1Locations: React.FC<Step1Props> = ({ formData, onChange, onNex
             <div className="flex items-center gap-1 text-xs">
               <Bookmark className="w-3.5 h-3.5 text-slate-400" />
               <select
-                onChange={(e) => handleSelectSavedPickup(e.target.value)}
+                onChange={(e) => {
+                  handleSelectSavedPickup(e.target.value)
+                  e.target.value = ''
+                }}
                 className="bg-slate-100 text-slate-700 font-medium rounded px-2 py-1 focus:outline-none text-xs cursor-pointer dark:bg-slate-800 dark:text-slate-200 dark:border dark:border-slate-700"
                 defaultValue=""
               >
@@ -225,7 +252,7 @@ export const Step1Locations: React.FC<Step1Props> = ({ formData, onChange, onNex
                 pickupAddress: {
                   ...formData.pickupAddress,
                   fullAddress: loc.fullAddress,
-                  landmark: loc.landmark || formData.pickupAddress.landmark,
+                  landmark: loc.landmark !== undefined ? loc.landmark : formData.pickupAddress.landmark,
                   coords: loc.coords,
                   city: loc.city || formData.pickupAddress.city,
                 },
@@ -234,6 +261,31 @@ export const Step1Locations: React.FC<Step1Props> = ({ formData, onChange, onNex
             placeholder="Search campus, society, or landmark (e.g. ADIT Anand, GCET, Satellite)..."
             colorTheme="emerald"
           />
+
+          {/* Quick Pick Chips for Pickup */}
+          <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+            <span className="text-[11px] font-semibold text-slate-400">Quick Pick:</span>
+            {POPULAR_PICKUP_HUBS.map((hub, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() =>
+                  onChange({
+                    pickupAddress: {
+                      ...formData.pickupAddress,
+                      fullAddress: hub.address,
+                      landmark: hub.landmark,
+                      coords: hub.coords,
+                      city: hub.city,
+                    },
+                  })
+                }
+                className="px-2 py-0.5 rounded-md text-[11px] font-medium bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 text-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-emerald-950/40 dark:hover:text-emerald-300 transition-colors cursor-pointer border border-slate-200/60 dark:border-slate-700"
+              >
+                {hub.label}
+              </button>
+            ))}
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <Input
@@ -274,6 +326,18 @@ export const Step1Locations: React.FC<Step1Props> = ({ formData, onChange, onNex
         </div>
       </div>
 
+      {/* Swap Button */}
+      <div className="flex justify-center -my-3 relative z-10">
+        <button
+          type="button"
+          onClick={handleSwapLocations}
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 shadow-md text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+          title="Swap Pickup and Drop Locations"
+        >
+          <span>⇄ Swap Pickup & Drop</span>
+        </button>
+      </div>
+
       {/* Drop Section */}
       <div className="rounded-xl border border-slate-200 bg-white p-5 space-y-4 shadow-xs dark:bg-slate-900 dark:border-slate-800">
         <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
@@ -287,7 +351,10 @@ export const Step1Locations: React.FC<Step1Props> = ({ formData, onChange, onNex
             <div className="flex items-center gap-1 text-xs">
               <Bookmark className="w-3.5 h-3.5 text-slate-400" />
               <select
-                onChange={(e) => handleSelectSavedDrop(e.target.value)}
+                onChange={(e) => {
+                  handleSelectSavedDrop(e.target.value)
+                  e.target.value = ''
+                }}
                 className="bg-slate-100 text-slate-700 font-medium rounded px-2 py-1 focus:outline-none text-xs cursor-pointer dark:bg-slate-800 dark:text-slate-200 dark:border dark:border-slate-700"
                 defaultValue=""
               >
@@ -314,7 +381,7 @@ export const Step1Locations: React.FC<Step1Props> = ({ formData, onChange, onNex
                 dropAddress: {
                   ...formData.dropAddress,
                   fullAddress: loc.fullAddress,
-                  landmark: loc.landmark || formData.dropAddress.landmark,
+                  landmark: loc.landmark !== undefined ? loc.landmark : formData.dropAddress.landmark,
                   coords: loc.coords,
                   city: loc.city || formData.dropAddress.city,
                 },
@@ -323,6 +390,31 @@ export const Step1Locations: React.FC<Step1Props> = ({ formData, onChange, onNex
             placeholder="Search campus, society, or landmark (e.g. GCET Anand, Navrangpura)..."
             colorTheme="navy"
           />
+
+          {/* Quick Pick Chips for Drop */}
+          <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+            <span className="text-[11px] font-semibold text-slate-400">Quick Pick:</span>
+            {POPULAR_DROP_HUBS.map((hub, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() =>
+                  onChange({
+                    dropAddress: {
+                      ...formData.dropAddress,
+                      fullAddress: hub.address,
+                      landmark: hub.landmark,
+                      coords: hub.coords,
+                      city: hub.city,
+                    },
+                  })
+                }
+                className="px-2 py-0.5 rounded-md text-[11px] font-medium bg-slate-100 hover:bg-slate-200 hover:text-slate-900 text-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-white transition-colors cursor-pointer border border-slate-200/60 dark:border-slate-700"
+              >
+                {hub.label}
+              </button>
+            ))}
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <Input

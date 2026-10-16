@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { BookingFormData } from './types'
+import { Address } from '@/types'
 import { DEMO_ADDRESSES } from '@/constants/mockData'
 import {
   clearBookingDraft,
@@ -15,6 +16,28 @@ import { Step5PaymentConfirmation } from './Step5PaymentConfirmation'
 import { searchKnownLocations, extractCityFromAddress } from '@/services/distanceRoutingService'
 import { Check, RotateCcw } from 'lucide-react'
 
+export const DEFAULT_PICKUP_ADDRESS: Address = {
+  id: 'pickup-new',
+  title: 'Pickup Location',
+  fullAddress: '',
+  landmark: '',
+  floor: '',
+  instructions: '',
+  coords: { lat: 22.54607, lng: 72.9818 }, // ADIT / Anand Corridor
+  city: 'Anand',
+}
+
+export const DEFAULT_DROP_ADDRESS: Address = {
+  id: 'drop-new',
+  title: 'Drop Location',
+  fullAddress: '',
+  landmark: '',
+  floor: '',
+  instructions: '',
+  coords: { lat: 22.5528, lng: 72.9242 }, // GCET / Vidyanagar Corridor
+  city: 'Anand',
+}
+
 const INITIAL_FORM_DATA: BookingFormData = {
   isBookingForOther: false,
   sender: {
@@ -25,8 +48,8 @@ const INITIAL_FORM_DATA: BookingFormData = {
     name: 'Pooja Trivedi',
     phone: '9924044556',
   },
-  pickupAddress: DEMO_ADDRESSES[0], // Satellite
-  dropAddress: DEMO_ADDRESSES[1], // Navrangpura
+  pickupAddress: DEFAULT_PICKUP_ADDRESS,
+  dropAddress: DEFAULT_DROP_ADDRESS,
 
   itemCategory: 'electronics',
   itemDescription: 'Dell XPS 15 Laptop in black protective sleeve with adapter',
@@ -61,35 +84,46 @@ export const BookingWizardPage: React.FC = () => {
   const location = useLocation()
   const [currentStep, setCurrentStep] = useState(1)
   const [formData, setFormData] = useState<BookingFormData>(() => {
-    const saved = loadBookingDraft<BookingFormData>()
-    if (saved) return saved
-
-    // If pre-filled from landing page quick card
+    // 1. If pre-filled from landing page quick booking card, prioritize it!
     const state = location.state as any
-    if (state) {
+    if (state?.pickup || state?.drop) {
       const pMatch = state.pickup ? searchKnownLocations(state.pickup)[0] : null
       const dMatch = state.drop ? searchKnownLocations(state.drop)[0] : null
       return {
         ...INITIAL_FORM_DATA,
         pickupAddress: state.pickup
           ? {
-              ...DEMO_ADDRESSES[0],
+              ...DEFAULT_PICKUP_ADDRESS,
               fullAddress: state.pickup,
-              coords: pMatch?.coords || DEMO_ADDRESSES[0].coords,
+              landmark: pMatch?.landmark,
+              coords: pMatch?.coords || DEFAULT_PICKUP_ADDRESS.coords,
               city: pMatch?.city || extractCityFromAddress(state.pickup),
             }
-          : DEMO_ADDRESSES[0],
+          : DEFAULT_PICKUP_ADDRESS,
         dropAddress: state.drop
           ? {
-              ...DEMO_ADDRESSES[1],
+              ...DEFAULT_DROP_ADDRESS,
               fullAddress: state.drop,
-              coords: dMatch?.coords || DEMO_ADDRESSES[1].coords,
+              landmark: dMatch?.landmark,
+              coords: dMatch?.coords || DEFAULT_DROP_ADDRESS.coords,
               city: dMatch?.city || extractCityFromAddress(state.drop),
             }
-          : DEMO_ADDRESSES[1],
+          : DEFAULT_DROP_ADDRESS,
         vehicleType: state.vehicle || INITIAL_FORM_DATA.vehicleType,
         itemCategory: state.category || INITIAL_FORM_DATA.itemCategory,
       }
+    }
+
+    // 2. Load draft if user has an existing saved draft
+    const saved = loadBookingDraft<BookingFormData>()
+    if (saved) {
+      // If the saved draft was trapped with the old legacy demo addresses, reset to clean state
+      const isLegacyDemoPickup = saved.pickupAddress?.fullAddress?.includes('Shivam Residency')
+      const isLegacyDemoDrop = saved.dropAddress?.fullAddress?.includes('Pinnacle Business Hub')
+      if (isLegacyDemoPickup && isLegacyDemoDrop) {
+        return INITIAL_FORM_DATA
+      }
+      return saved
     }
 
     return INITIAL_FORM_DATA

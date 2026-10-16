@@ -410,11 +410,176 @@ export const KNOWN_LOGISTICS_HUBS: ResolvedLocation[] = [
   },
   {
     title: 'Vesu Commercial Corridor, Surat',
-    subtitle: 'Vesu, Surat',
+    subtitle: 'VIP Road, Vesu, Surat',
     fullAddress: 'VIP Road, Vesu, Surat, Gujarat 395007',
     landmark: 'Near Surat Airport Road Junction',
     coords: { lat: 21.1418, lng: 72.7758 },
     city: 'Surat',
+    isExactMatch: true,
+  },
+  {
+    title: 'Adajan Commercial Hub, Surat',
+    subtitle: 'Anand Mahal Road, Adajan, Surat',
+    fullAddress: 'Prime Arcade, Anand Mahal Road, Adajan, Surat, Gujarat 395009',
+    landmark: 'Near Gujarat Gas Circle',
+    coords: { lat: 21.1925, lng: 72.7954 },
+    city: 'Surat',
+    isExactMatch: true,
+  },
+
+  // --- Rajkot Hubs ---
+  {
+    title: 'Yagnik Road Commercial Center, Rajkot',
+    subtitle: 'Dr. Yagnik Road, Rajkot',
+    fullAddress: 'Imperial Heights, Dr. Yagnik Road, Rajkot, Gujarat 360001',
+    landmark: 'Near Jagnath Plot',
+    coords: { lat: 22.2965, lng: 70.7981 },
+    city: 'Rajkot',
+    isExactMatch: true,
+  },
+  {
+    title: 'Crystal Mall, Kalawad Road, Rajkot',
+    subtitle: 'Kalawad Road, Rajkot',
+    fullAddress: 'Crystal Mall, Opp. Rani Tower, Kalawad Road, Rajkot, Gujarat 360005',
+    landmark: 'Near KKV Hall Circle',
+    coords: { lat: 22.2789, lng: 70.7675 },
+    city: 'Rajkot',
+    isExactMatch: true,
+  },
+
+  // --- Mumbai Hubs ---
+  {
+    title: 'Bandra Kurla Complex (BKC), Mumbai',
+    subtitle: 'G Block, Bandra East, Mumbai',
+    fullAddress: 'Bandra Kurla Complex (BKC), Bandra East, Mumbai, Maharashtra 400051',
+    landmark: 'Near Bharat Diamond Bourse & ICICI Towers',
+    coords: { lat: 19.0657, lng: 72.8688 },
+    city: 'Mumbai',
+    isExactMatch: true,
+  },
+  {
+    title: 'Andheri West (Lokhandwala / Link Road)',
+    subtitle: 'Andheri West, Mumbai',
+    fullAddress: 'Infinity Mall, New Link Road, Andheri West, Mumbai, Maharashtra 400053',
+    landmark: 'Opp. Oshiwara Police Station',
+    coords: { lat: 19.1412, lng: 72.8315 },
+    city: 'Mumbai',
+    isExactMatch: true,
+  },
+  {
+    title: 'Andheri East (MIDC / SEEPZ)',
+    subtitle: 'Chakala, Andheri East, Mumbai',
+    fullAddress: 'MIDC Central Road, Chakala, Andheri East, Mumbai, Maharashtra 400093',
+    landmark: 'Near Chakala Metro Station',
+    coords: { lat: 19.1172, lng: 72.8682 },
+    city: 'Mumbai',
+    isExactMatch: true,
+  },
+  {
+    title: 'Powai (Hiranandani Gardens), Mumbai',
+    subtitle: 'Hiranandani Gardens, Powai, Mumbai',
+    fullAddress: 'Central Avenue, Hiranandani Gardens, Powai, Mumbai, Maharashtra 400076',
+    landmark: 'Near Galleria Shopping Mall',
+    coords: { lat: 19.1197, lng: 72.9056 },
+    city: 'Mumbai',
+    isExactMatch: true,
+  },
+  {
+    title: 'Chhatrapati Shivaji Maharaj International Airport (BOM)',
+    subtitle: 'Terminal 2, Sahar, Andheri East, Mumbai',
+    fullAddress: 'CSMIA Terminal 2, Sahar Road, Andheri East, Mumbai, Maharashtra 400099',
+    landmark: 'Terminal 2 Departures Gate 4',
+    coords: { lat: 19.0896, lng: 72.8656 },
+    city: 'Mumbai',
+    isExactMatch: true,
+  },
+
+  // --- Delhi / NCR Hubs ---
+  {
+    title: 'Connaught Place (CP), New Delhi',
+    subtitle: 'Inner Circle, Connaught Place, New Delhi',
+    fullAddress: 'Inner Circle, Connaught Place, New Delhi, Delhi 110001',
+    landmark: 'Near Rajiv Chowk Metro Gate 5',
+    coords: { lat: 28.6315, lng: 77.2167 },
+    city: 'Delhi',
+    isExactMatch: true,
+  },
+  {
+    title: 'Cyber City, DLF Phase 2, Gurugram',
+    subtitle: 'DLF Cyber City, Sector 24, Gurugram',
+    fullAddress: 'Building 10, DLF Cyber City, Sector 24, Gurugram, Haryana 122002',
+    landmark: 'Near Cyber Hub & IndusInd Rapid Metro',
+    coords: { lat: 28.4952, lng: 77.0895 },
+    city: 'Delhi',
+    isExactMatch: true,
+  },
+  {
+    title: 'Sector 18 Commercial Hub, Noida',
+    subtitle: 'Atta Market, Sector 18, Noida',
+    fullAddress: 'Sector 18 Commercial Complex, Noida, Uttar Pradesh 201301',
+    landmark: 'Near Wave Mall & Sector 18 Metro',
+    coords: { lat: 28.5708, lng: 77.3218 },
+    city: 'Delhi',
+    isExactMatch: true,
+  },
+
+  // --- Bengaluru Hubs ---
+  {
+    title: 'Koramangala (80 Feet Road), Bengaluru',
+    subtitle: '4th Block, Koramangala, Bengaluru',
+    fullAddress: '80 Feet Road, 4th Block, Koramangala, Bengaluru, Karnataka 560034',
+    landmark: 'Near Sony World Signal',
+    coords: { lat: 12.9344, lng: 77.6288 },
+    city: 'Bangalore',
+    isExactMatch: true,
+  },
+  {
+    title: 'Indiranagar (100 Feet Road), Bengaluru',
+    subtitle: 'HAL 2nd Stage, Indiranagar, Bengaluru',
+    fullAddress: '100 Feet Road, Indiranagar, Bengaluru, Karnataka 560038',
+    landmark: 'Near 12th Main Junction',
+    coords: { lat: 12.9719, lng: 77.6412 },
+    city: 'Bangalore',
+    isExactMatch: true,
+  },
+  {
+    title: 'Whitefield (ITPL Tech Park), Bengaluru',
+    subtitle: 'ITPL Main Road, Whitefield, Bengaluru',
+    fullAddress: 'International Tech Park (ITPL), Whitefield Main Road, Bengaluru, Karnataka 560066',
+    landmark: 'Opposite Park Square Mall',
+    coords: { lat: 12.9866, lng: 77.7303 },
+    city: 'Bangalore',
+    isExactMatch: true,
+  },
+
+  // --- Pune Hubs ---
+  {
+    title: 'Hinjewadi Infotech Park Phase 1, Pune',
+    subtitle: 'Rajiv Gandhi Infotech Park, Hinjewadi, Pune',
+    fullAddress: 'Phase 1, Hinjewadi Infotech Park, Pune, Maharashtra 411057',
+    landmark: 'Near Shivaji Chowk Hinjewadi',
+    coords: { lat: 18.5913, lng: 73.7389 },
+    city: 'Pune',
+    isExactMatch: true,
+  },
+  {
+    title: 'Viman Nagar / Phoenix Marketcity, Pune',
+    subtitle: 'Viman Nagar, Pune',
+    fullAddress: 'Phoenix Marketcity, Nagar Road, Viman Nagar, Pune, Maharashtra 411014',
+    landmark: 'Near Clover Park',
+    coords: { lat: 18.5621, lng: 73.9168 },
+    city: 'Pune',
+    isExactMatch: true,
+  },
+
+  // --- Hyderabad Hubs ---
+  {
+    title: 'Hitec City (Cyber Towers), Hyderabad',
+    subtitle: 'Madhapur, Hitec City, Hyderabad',
+    fullAddress: 'Cyber Towers, Hitec City Main Road, Madhapur, Hyderabad, Telangana 500081',
+    landmark: 'Near Hitec City Metro Station',
+    coords: { lat: 17.4504, lng: 78.3808 },
+    city: 'Hyderabad',
     isExactMatch: true,
   },
 ]
@@ -437,7 +602,16 @@ export const CITY_COORDINATES: Record<string, Coordinates> = {
   mumbai: { lat: 19.076, lng: 72.8777 },
   pune: { lat: 18.5204, lng: 73.8567 },
   delhi: { lat: 28.6139, lng: 77.209 },
+  gurgaon: { lat: 28.4595, lng: 77.0266 },
+  noida: { lat: 28.5355, lng: 77.391 },
   bangalore: { lat: 12.9716, lng: 77.5946 },
+  hyderabad: { lat: 17.385, lng: 78.4867 },
+  chennai: { lat: 13.0827, lng: 80.2707 },
+  kolkata: { lat: 22.5726, lng: 88.3639 },
+  jaipur: { lat: 26.9124, lng: 75.7873 },
+  chandigarh: { lat: 30.7333, lng: 76.7794 },
+  lucknow: { lat: 26.8467, lng: 80.9462 },
+  indore: { lat: 22.7196, lng: 75.8577 },
 }
 
 /**
@@ -477,33 +651,46 @@ function getDeterministicOffset(seedText: string, radiusKm = 3.5): { latOffset: 
 /**
  * Searches the curated database of landmarks for autocomplete and geocoding
  */
-export function searchKnownLocations(query: string, maxResults = 5): ResolvedLocation[] {
+export function searchKnownLocations(query: string, maxResults = 8): ResolvedLocation[] {
   if (!query || query.trim().length < 2) {
     return KNOWN_LOGISTICS_HUBS.slice(0, maxResults)
   }
 
+  const queryLower = query.toLowerCase().trim()
   const queryTokens = normalizeTokens(query)
 
   // Direct special keyword alias matches
-  const hasAdit = queryTokens.includes('adit') || query.toLowerCase().includes('a d patel') || query.toLowerCase().includes('a. d. patel')
-  const hasGcet = queryTokens.includes('gcet') || query.toLowerCase().includes('g h patel') || query.toLowerCase().includes('g. h. patel')
-  const hasBvm = queryTokens.includes('bvm') || query.toLowerCase().includes('birla vishvakarma')
-  const hasSpu = queryTokens.includes('spu') || query.toLowerCase().includes('sardar patel university')
-  const hasCharusat = queryTokens.includes('charusat') || query.toLowerCase().includes('changa')
+  const hasAdit = queryTokens.includes('adit') || queryLower.includes('a d patel') || queryLower.includes('a. d. patel')
+  const hasGcet = queryTokens.includes('gcet') || queryLower.includes('g h patel') || queryLower.includes('g. h. patel')
+  const hasBvm = queryTokens.includes('bvm') || queryLower.includes('birla vishvakarma')
+  const hasSpu = queryTokens.includes('spu') || queryLower.includes('sardar patel university')
+  const hasCharusat = queryTokens.includes('charusat') || queryLower.includes('changa')
 
   const scored = KNOWN_LOGISTICS_HUBS.map((hub) => {
     let score = 0
-    const hubText = `${hub.title} ${hub.subtitle} ${hub.fullAddress} ${hub.landmark || ''} ${hub.city}`.toLowerCase()
+    const titleLower = hub.title.toLowerCase()
+    const subtitleLower = hub.subtitle.toLowerCase()
+    const addressLower = hub.fullAddress.toLowerCase()
+    const cityLower = hub.city.toLowerCase()
+    const hubText = `${titleLower} ${subtitleLower} ${addressLower} ${hub.landmark || ''} ${cityLower}`
 
-    if (hasAdit && hub.title.includes('ADIT')) score += 100
-    if (hasGcet && hub.title.includes('GCET')) score += 100
-    if (hasBvm && hub.title.includes('BVM')) score += 100
-    if (hasSpu && hub.title.includes('SPU')) score += 100
-    if (hasCharusat && hub.title.includes('CHARUSAT')) score += 100
+    if (hasAdit && hub.title.includes('ADIT')) score += 120
+    if (hasGcet && hub.title.includes('GCET')) score += 120
+    if (hasBvm && hub.title.includes('BVM')) score += 120
+    if (hasSpu && hub.title.includes('SPU')) score += 120
+    if (hasCharusat && hub.title.includes('CHARUSAT')) score += 120
+
+    if (titleLower.startsWith(queryLower)) score += 150
+    else if (titleLower.includes(queryLower)) score += 80
+    else if (addressLower.includes(queryLower)) score += 50
 
     queryTokens.forEach((token) => {
-      if (hubText.includes(token)) {
-        score += token.length >= 4 ? 12 : 5
+      if (titleLower.includes(token)) {
+        score += token.length >= 4 ? 20 : 8
+      } else if (cityLower === token) {
+        score += 15
+      } else if (hubText.includes(token)) {
+        score += 6
       }
     })
 
@@ -521,21 +708,23 @@ export function searchKnownLocations(query: string, maxResults = 5): ResolvedLoc
 
 /**
  * Resolves address text to precise real-world coordinates and metadata.
- * Uses a 4-tier resolution pipeline:
+ * Uses a 5-tier resilient resolution pipeline:
  * 1. Curated Gujarat/National Logistics Hub match (e.g. ADIT, GCET, SPU, Satellite)
- * 2. Active Google Maps Geocoder if Google Maps API is initialized
- * 3. OpenStreetMap Nominatim Geocoder (free public API)
- * 4. Smart City/District parser with deterministic local street offset
+ * 2. Active Google Maps Geocoder if Google Maps API is initialized in browser
+ * 3. Photon Autocomplete Geocoder (Ultra-fast OpenStreetMap API, zero CORS issues, global coverage)
+ * 4. Google Places API (New) Text Search via Local Move Backend Proxy
+ * 5. OpenStreetMap Nominatim Geocoder
+ * 6. Smart City/District parser with deterministic local street offset
  */
 export async function resolveAddressCoordinates(addressText: string): Promise<ResolvedLocation> {
   const clean = addressText.trim()
   if (!clean) {
     return {
       title: 'Current Location',
-      subtitle: 'Ahmedabad, Gujarat',
-      fullAddress: 'Ahmedabad, Gujarat',
-      coords: { lat: 23.0225, lng: 72.5714 },
-      city: 'Ahmedabad',
+      subtitle: 'Anand, Gujarat',
+      fullAddress: 'Anand, Gujarat',
+      coords: { lat: 22.5528, lng: 72.9242 },
+      city: 'Anand',
     }
   }
 
@@ -557,63 +746,36 @@ export async function resolveAddressCoordinates(addressText: string): Promise<Re
   // Specific check for ADIT & GCET keywords even if extra words are typed
   const lower = clean.toLowerCase()
   if (lower.includes('adit') || lower.includes('a d patel') || lower.includes('a. d. patel') || lower.includes('a.d. patel')) {
-    const hub = KNOWN_LOGISTICS_HUBS.find((h) => h.title.includes('ADIT'))!
-    return {
-      title: 'A. D. Patel Institute of Technology (ADIT)',
-      subtitle: 'New Vallabh Vidyanagar, Anand',
-      fullAddress: clean,
-      landmark: hub.landmark,
-      coords: hub.coords,
-      city: 'Anand',
-      isExactMatch: true,
+    const hub = KNOWN_LOGISTICS_HUBS.find((h) => h.title.includes('ADIT'))
+    if (hub) {
+      return {
+        title: 'A. D. Patel Institute of Technology (ADIT)',
+        subtitle: 'New Vallabh Vidyanagar, Anand',
+        fullAddress: clean,
+        landmark: hub.landmark,
+        coords: hub.coords,
+        city: 'Anand',
+        isExactMatch: true,
+      }
     }
   }
 
   if (lower.includes('gcet') || lower.includes('g h patel') || lower.includes('g. h. patel') || lower.includes('g.h. patel')) {
-    const hub = KNOWN_LOGISTICS_HUBS.find((h) => h.title.includes('GCET'))!
-    return {
-      title: 'G H Patel College of Engineering & Technology (GCET)',
-      subtitle: 'Bakrol Road, Vallabh Vidyanagar, Anand',
-      fullAddress: clean,
-      landmark: hub.landmark,
-      coords: hub.coords,
-      city: 'Anand',
-      isExactMatch: true,
+    const hub = KNOWN_LOGISTICS_HUBS.find((h) => h.title.includes('GCET'))
+    if (hub) {
+      return {
+        title: 'G H Patel College of Engineering & Technology (GCET)',
+        subtitle: 'Bakrol Road, Vallabh Vidyanagar, Anand',
+        fullAddress: clean,
+        landmark: hub.landmark,
+        coords: hub.coords,
+        city: 'Anand',
+        isExactMatch: true,
+      }
     }
   }
 
-  // Tier 2: Real Google Places API (New) Text Search via Local Move Backend Proxy
-  if (typeof fetch !== 'undefined') {
-    try {
-      const controller = new AbortController()
-      const timeoutId = setTimeout(() => controller.abort(), 2000)
-      const res = await fetch('/api/v1/maps/places-search', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: clean }),
-        signal: controller.signal,
-      })
-      clearTimeout(timeoutId)
-      if (res.ok) {
-        const json = await res.json()
-        const places = json?.data?.places || json?.places
-        if (Array.isArray(places) && places.length > 0) {
-          const top = places[0]
-          return {
-            title: top.title,
-            subtitle: top.subtitle || top.fullAddress,
-            fullAddress: top.fullAddress || clean,
-            landmark: top.subtitle,
-            coords: top.coords,
-            city: top.city || extractCityFromAddress(top.fullAddress || clean),
-            isExactMatch: true,
-          }
-        }
-      }
-    } catch {}
-  }
-
-  // Tier 3: Check Google Maps Geocoder if loaded
+  // Tier 2: Check Google Maps Geocoder if loaded in window
   const win = typeof window !== 'undefined' ? (window as any) : null
   if (win?.google?.maps?.Geocoder) {
     try {
@@ -646,14 +808,77 @@ export async function resolveAddressCoordinates(addressText: string): Promise<Re
     } catch {}
   }
 
-  // Tier 3: OpenStreetMap Nominatim Geocoder (Client-side fetch with timeout)
+  // Tier 3: Photon Autocomplete Geocoder (Ultra-fast OpenStreetMap API, no CORS issues, no key needed)
+  if (typeof fetch !== 'undefined') {
+    try {
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 2000)
+      const res = await fetch(
+        `https://photon.komoot.io/api/?q=${encodeURIComponent(clean)}&limit=1`,
+        { signal: controller.signal },
+      )
+      clearTimeout(timeoutId)
+      if (res.ok) {
+        const data = await res.json()
+        const feat = data?.features?.[0]
+        if (feat?.geometry?.coordinates && feat.geometry.coordinates.length >= 2) {
+          const lng = Number(feat.geometry.coordinates[0].toFixed(5))
+          const lat = Number(feat.geometry.coordinates[1].toFixed(5))
+          const props = feat.properties || {}
+          const city = props.city || props.district || props.state || extractCityFromAddress(clean)
+          const name = props.name || clean.split(',')[0]
+          return {
+            title: name,
+            subtitle: [props.street, props.city, props.state].filter(Boolean).join(', ') || clean,
+            fullAddress: clean,
+            coords: { lat, lng },
+            city,
+            isExactMatch: true,
+          }
+        }
+      }
+    } catch {}
+  }
+
+  // Tier 4: Real Google Places API (New) Text Search via Local Move Backend Proxy (if backend is running)
+  if (typeof fetch !== 'undefined') {
+    try {
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 1200)
+      const res = await fetch('/api/v1/maps/places-search', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: clean }),
+        signal: controller.signal,
+      })
+      clearTimeout(timeoutId)
+      if (res.ok) {
+        const json = await res.json()
+        const places = json?.data?.places || json?.places
+        if (Array.isArray(places) && places.length > 0) {
+          const top = places[0]
+          return {
+            title: top.title,
+            subtitle: top.subtitle || top.fullAddress,
+            fullAddress: top.fullAddress || clean,
+            landmark: top.subtitle,
+            coords: top.coords,
+            city: top.city || extractCityFromAddress(top.fullAddress || clean),
+            isExactMatch: true,
+          }
+        }
+      }
+    } catch {}
+  }
+
+  // Tier 5: OpenStreetMap Nominatim Geocoder
   if (typeof fetch !== 'undefined') {
     try {
       const controller = new AbortController()
       const timeoutId = setTimeout(() => controller.abort(), 1600)
       const res = await fetch(
         `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
-          clean + ', Gujarat, India',
+          clean + ', India',
         )}&format=json&limit=1`,
         {
           signal: controller.signal,
@@ -679,14 +904,14 @@ export async function resolveAddressCoordinates(addressText: string): Promise<Re
     } catch {}
   }
 
-  // Tier 4: City detection and deterministic geographic hashing
+  // Tier 6: City detection and deterministic geographic hashing
   const city = extractCityFromAddress(clean)
-  const baseCoords = CITY_COORDINATES[city.toLowerCase()] || CITY_COORDINATES.ahmedabad
-  const { latOffset, lngOffset } = getDeterministicOffset(clean, 4.0)
+  const baseCoords = CITY_COORDINATES[city.toLowerCase()] || CITY_COORDINATES.anand || CITY_COORDINATES.ahmedabad
+  const { latOffset, lngOffset } = getDeterministicOffset(clean, 3.0)
 
   return {
     title: clean.split(',')[0] || clean,
-    subtitle: `${city}, Gujarat`,
+    subtitle: `${city}, India`,
     fullAddress: clean,
     coords: {
       lat: Number((baseCoords.lat + latOffset).toFixed(5)),
@@ -702,7 +927,17 @@ export async function resolveAddressCoordinates(addressText: string): Promise<Re
  */
 export function extractCityFromAddress(address: string): string {
   const lower = address.toLowerCase()
-  if (lower.includes('vidyanagar') || lower.includes('anand') || lower.includes('bakrol') || lower.includes('karamsad')) {
+  if (
+    lower.includes('vidyanagar') ||
+    lower.includes('anand') ||
+    lower.includes('bakrol') ||
+    lower.includes('karamsad') ||
+    lower.includes('adit') ||
+    lower.includes('gcet') ||
+    lower.includes('bvm') ||
+    lower.includes('spu') ||
+    lower.includes('changa')
+  ) {
     return 'Anand'
   }
   if (lower.includes('nadiad')) return 'Nadiad'
@@ -712,18 +947,65 @@ export function extractCityFromAddress(address: string): string {
   if (lower.includes('vadodara') || lower.includes('baroda') || lower.includes('alkapuri') || lower.includes('makarpura')) {
     return 'Vadodara'
   }
-  if (lower.includes('surat') || lower.includes('vesu')) return 'Surat'
+  if (lower.includes('surat') || lower.includes('vesu') || lower.includes('adajan') || lower.includes('varachha')) return 'Surat'
   if (lower.includes('rajkot')) return 'Rajkot'
   if (lower.includes('bhavnagar')) return 'Bhavnagar'
   if (lower.includes('jamnagar')) return 'Jamnagar'
-  if (lower.includes('mumbai') || lower.includes('andheri') || lower.includes('bandra') || lower.includes('thane')) {
+  if (
+    lower.includes('mumbai') ||
+    lower.includes('andheri') ||
+    lower.includes('bandra') ||
+    lower.includes('thane') ||
+    lower.includes('powai') ||
+    lower.includes('borivali') ||
+    lower.includes('dadar') ||
+    lower.includes('bkc')
+  ) {
     return 'Mumbai'
   }
-  if (lower.includes('pune')) return 'Pune'
-  if (lower.includes('delhi') || lower.includes('noida') || lower.includes('gurgaon')) return 'Delhi'
-  if (lower.includes('bangalore') || lower.includes('bengaluru')) return 'Bangalore'
+  if (lower.includes('pune') || lower.includes('hinjewadi') || lower.includes('kothrud') || lower.includes('viman nagar')) return 'Pune'
+  if (
+    lower.includes('delhi') ||
+    lower.includes('noida') ||
+    lower.includes('gurgaon') ||
+    lower.includes('gurugram') ||
+    lower.includes('saket') ||
+    lower.includes('dwarka') ||
+    lower.includes('connaught')
+  ) {
+    return 'Delhi'
+  }
+  if (
+    lower.includes('bangalore') ||
+    lower.includes('bengaluru') ||
+    lower.includes('koramangala') ||
+    lower.includes('indiranagar') ||
+    lower.includes('whitefield') ||
+    lower.includes('hsr layout')
+  ) {
+    return 'Bangalore'
+  }
+  if (lower.includes('hyderabad') || lower.includes('secunderabad') || lower.includes('hitec') || lower.includes('gachibowli')) return 'Hyderabad'
+  if (lower.includes('chennai') || lower.includes('adyar') || lower.includes('velachery')) return 'Chennai'
+  if (lower.includes('kolkata') || lower.includes('howrah') || lower.includes('salt lake')) return 'Kolkata'
+  if (lower.includes('jaipur')) return 'Jaipur'
+  if (
+    lower.includes('satellite') ||
+    lower.includes('navrangpura') ||
+    lower.includes('bopal') ||
+    lower.includes('bodakdev') ||
+    lower.includes('vastrapur') ||
+    lower.includes('prahlad') ||
+    lower.includes('changodar') ||
+    lower.includes('motera') ||
+    lower.includes('maninagar') ||
+    lower.includes('gota') ||
+    lower.includes('ahmedabad')
+  ) {
+    return 'Ahmedabad'
+  }
 
-  return 'Ahmedabad'
+  return 'Gujarat'
 }
 
 /**
