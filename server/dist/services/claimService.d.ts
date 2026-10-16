@@ -1,0 +1,54 @@
+export declare function getClaims(): Promise<{
+    id: string;
+    orderId: string;
+    customerId: string;
+    customerName: string;
+    customerPhone: string;
+    driverName: string;
+    itemDescription: string;
+    declaredValueInr: number;
+    claimedAmountInr: number;
+    approvedCompensationInr: number | undefined;
+    pickupPhotos: string[];
+    dropPhotos: string[];
+    description: string;
+    status: "open" | "under_review" | "approved" | "rejected";
+    assignedInvestigator: string | undefined;
+    resolutionNotes: string | undefined;
+    createdAt: string;
+}[]>;
+export declare function raiseClaim(payload: {
+    orderId: string;
+    customerId?: string;
+    customerName: string;
+    customerPhone: string;
+    driverName: string;
+    itemDescription: string;
+    declaredValueInr: number;
+    claimedAmountInr: number;
+    pickupPhotos: string[];
+    dropPhotos: string[];
+    description: string;
+}): Promise<{
+    success: boolean;
+    claimId: string;
+}>;
+export declare function resolveClaim(claimId: string, approvedAmount: number, note: string): Promise<{
+    id: string;
+    orderId: string;
+    customerId: string;
+    customerName: string;
+    customerPhone: string;
+    driverName: string;
+    itemDescription: string;
+    declaredValueInr: number;
+    claimedAmountInr: number;
+    approvedCompensationInr: number | undefined;
+    pickupPhotos: string[];
+    dropPhotos: string[];
+    description: string;
+    status: "open" | "under_review" | "approved" | "rejected";
+    assignedInvestigator: string | undefined;
+    resolutionNotes: string | undefined;
+    createdAt: string;
+} | undefined>;
